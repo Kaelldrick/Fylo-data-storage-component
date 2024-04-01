@@ -1,0 +1,188 @@
+:root {
+    /* Primary */
+    --Gradient: linear-gradient(to right, hsl(6, 100%, 80%), hsl(335, 100%, 65%));
+    --Grayish_Blue: hsl(229, 7%, 55%);
+    --Dark_Blue: hsl(228, 56%, 26%);
+    --Very_Dark_Blue: hsl(229, 57%, 11%);
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: var(--Very_Dark_Blue);
+    background-image: url("images/bg-desktop.png");
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: 50vh;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--Pale_Blue);
+    font-family: Raleway, sans-serif;
+    font-size: 14px;
+    color: #d4d9ff;
+}
+
+.component {
+    display: flex;
+    column-gap: 32px;
+    justify-content: center;
+    align-items: end;
+    position: relative;
+
+    & .component__img {
+        width: 348px;
+        min-height: 201px;
+        border-radius: 10px;
+        border-top-right-radius: 94px;
+        display: flex;
+        flex-direction: column;
+        padding: 41px;
+        row-gap: 32px;
+
+        & .component__icons {
+            display: flex;
+            column-gap: 16px;
+
+            & .icons__item {
+                width: 48px;
+                height: 48px;
+                background-color: var(--Very_Dark_Blue);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 10px;
+            }
+        }
+    }
+
+    & .component__storage {
+        width: 540px;
+        height: 152px;
+        border-radius: 10px;
+        padding: 40px;
+
+        & span {
+            font-weight: 700;
+        }
+
+        & .storage__progress {
+            width: 100%;
+            height: 20px;
+            background-color: #151e49;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            margin: 16px 0 5px;
+            position: relative;
+
+            & .progress__bar {
+                width: 342px;
+                height: 14px;
+                margin-left: 4px;
+                border-radius: 15px;
+                background-image: var(--Gradient);
+                display: flex;
+                align-items: center;
+                justify-content: flex-end;
+                padding: 5px 3px;
+
+                & .progress__point {
+                    width: 11px;
+                    height: 11px;
+                    background-color: white;
+                    border-radius: 50%;
+                }
+            }
+        }
+
+        & .progress__gb {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        & .progress__tooltip {
+            position: absolute;
+            top: 5px;
+            right: 40px;
+            width: 178px;
+            height: 72px;
+            border-radius: 8px;
+            border-bottom-right-radius: 0;
+            background-color: white;
+            color: black;
+            font-size: 40px;
+            font-weight: 700;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            & span:last-child {
+                font-size: 13px;
+                letter-spacing: 1px;
+                color: var(--Grayish_Blue);
+                margin-left: 10px;
+            }
+
+            &::after {
+                position: absolute;
+                display: block;
+                content: '';
+                bottom: -22px;
+                right: 0;
+                border-left: 22px solid transparent;
+                border-top: 22px solid white;
+            }
+        }
+    }
+
+    & .bg-blue {
+        background-color: var(--Dark_Blue);
+    }
+}
+
+@media screen and (width <=950px) {
+
+    body {
+        background-image: url("images/bg-mobile.png");
+        background-size: cover;
+        background-position: center center;
+    }
+
+    .component {
+        flex-direction: column;
+        row-gap: 18px;
+
+        & .component__img,
+        & .component__storage {
+            width: 326px;
+        }
+
+        & .component__storage {
+            position: relative;
+            height: 159px;
+
+            & .storage__progress {
+                & .progress__bar {
+                    width: 192px;
+                }
+            }
+
+            & .progress__tooltip {
+                left: 20%;
+                top: 80%;
+                border-radius: 8px;
+
+                &::after {
+                    display: none;
+                }
+            }
+        }
+    }
+
+}
