@@ -143,6 +143,7 @@ body {
 
     & .bg-blue {
         background-color: var(--Dark_Blue);
+        box-shadow: 12px 12px 19px 0px #11193d;
     }
 }
 
